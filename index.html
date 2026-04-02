@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Priyanshu Upadhyay | Portfolio</title>
-<link rel="icon" href="data:;base64,iVBORw0KGgo="> <style>
+<link rel="icon" href="data:;base64,iVBORw0KGgo="> 
+
+<style>
 /* CSS VARIABLES FOR THEME */
 :root {
     --bg-color: #111111;
@@ -53,7 +55,7 @@ body {
 
 /* SIDEBAR */
 #sidebar {
-    width: 300px;
+    width: 320px; /* Increased slightly to fit email */
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -65,14 +67,14 @@ body {
 .avatar-container {
     background: #2a2a2c;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 35px; /* Matched reference image rounded square */
     margin-bottom: 20px;
 }
 
 #profile-pic {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    border-radius: 28px; /* Matched reference image rounded square */
     object-fit: cover;
     display: block;
 }
@@ -147,12 +149,13 @@ body {
     margin-bottom: 3px;
 }
 
-/* FIXED EMAIL TRUNCATION HERE */
+/* FIXED EMAIL TRUNCATION & WRAP HERE */
 .contact-value {
     font-size: 0.85rem;
     color: var(--text-primary);
     text-decoration: none;
-    word-break: break-all; /* Allows full email to wrap instead of hiding */
+    overflow-wrap: break-word; 
+    word-break: break-word; /* Prevents breaking single letters off */
 }
 
 /* SOCIALS */
@@ -447,7 +450,8 @@ body {
     font-size: 1rem;
     color: var(--text-primary);
     text-decoration: none;
-    word-break: break-all;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .contact-card-value a {
@@ -508,7 +512,7 @@ function showPage(id, btnElement) {
     <aside id="sidebar" class="card">
         
         <div class="avatar-container">
-            <img src="profile.jpg" id="extracted_images/profile.jpg" alt="Profile" onerror="this.src='extracted_images/profile.jpg'">
+            <img src="profile.jpg" id="profile-pic" alt="Profile">
         </div>
 
         <div id="name">Priyanshu Upadhyay</div>

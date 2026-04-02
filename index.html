@@ -628,6 +628,13 @@ body {
 }
 
 /* Modal Left Col */
+.modal-tag-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
 .modal-primary-tag {
     background: var(--tag-blue);
     color: var(--tag-blue-text);
@@ -636,7 +643,16 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     display: inline-block;
-    margin-bottom: 20px;
+}
+
+.modal-top-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.modal-top-icon svg {
+    width: 100%;
+    height: 100%;
 }
 
 .modal-title {
@@ -653,7 +669,7 @@ body {
 }
 
 .modal-domain span {
-    color: #00d26a; /* Green highlight from reference */
+    color: #00d26a; 
     font-weight: 600;
 }
 
@@ -819,6 +835,11 @@ function showPage(id, btnElement) {
     if(btnElement) btnElement.classList.add("active-tab");
 }
 
+/* SVG CONSTANTS */
+const svgFabric = '<svg viewBox="0 0 24 24" fill="#3399ff"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>';
+const svgPowerBI = '<svg viewBox="0 0 24 24" fill="#F2C811"><rect x="2" y="14" width="4" height="8"/><rect x="10" y="8" width="4" height="14"/><rect x="18" y="2" width="4" height="20"/></svg>';
+const svgSQL = '<svg viewBox="0 0 24 24" fill="#00758F"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>';
+
 /* PROJECT MODAL LOGIC & DATA */
 const projectData = {
     proj1: {
@@ -829,6 +850,7 @@ const projectData = {
         tools: ["Microsoft Fabric", "Power BI", "SQL", "Python", "Delta Lake"],
         image: "extracted_images/image_3_2.jpg",
         caption: "Architecture diagram showing the end-to-end data flow using Medallion Architecture in Microsoft Fabric.",
+        topSvg: svgFabric,
         details: `
             <p><strong>Goal:</strong> Implement a scalable, governed, and automated data architecture to replace unstable and slow Excel-based reporting.</p><br>
             <p><strong>Pain Points Solved:</strong></p>
@@ -854,6 +876,7 @@ const projectData = {
         tools: ["Power BI", "SQL", "DAX", "Power Query"],
         image: "extracted_images/image_10_9.jpg",
         caption: "A unified KPI-driven dashboard displaying progress to date, earned hours, plan vs actual, and performance factors.",
+        topSvg: svgPowerBI,
         details: `
             <p><strong>Goal:</strong> Create a single source of truth for project performance by integrating planning systems, cost controls, engineering deliverables, and construction feeds.</p><br>
             <p><strong>Key Contributions:</strong></p>
@@ -877,6 +900,7 @@ const projectData = {
         tools: ["Power BI", "SQL", "DAX", "Variance Analysis"],
         image: "extracted_images/image_12_10.jpg",
         caption: "Detailed progress tracking report at the building/unit area level, enabling visibility into contractor performance.",
+        topSvg: svgPowerBI,
         details: `
             <p><strong>Goal:</strong> Improve visibility into individual contractor performance and track earned value metrics accurately.</p><br>
             <p><strong>Key Contributions:</strong></p>
@@ -901,6 +925,7 @@ const projectData = {
         tools: ["Power BI", "SQL", "Time-Series Analysis", "Power Query"],
         image: "extracted_images/image_14_11.jpg",
         caption: "Time-series forecasting model displaying base scope vs. variation curves over a multi-year project lifecycle.",
+        topSvg: svgSQL,
         details: `
             <p><strong>Goal:</strong> Support long-term planning and resource forecasting by visualizing project trends over an extended timeline.</p><br>
             <p><strong>Key Contributions:</strong></p>
@@ -924,6 +949,7 @@ const projectData = {
         tools: ["Power BI", "SQL", "DAX", "Workforce Analytics"],
         image: "extracted_images/image_9_8.png",
         caption: "Analytics charting tools used to track FTE utilization and highlight under/over-resourcing trends.",
+        topSvg: svgPowerBI,
         details: `
             <p><strong>Goal:</strong> Optimize labor planning by monitoring performance and ensuring data accuracy in contractor reporting.</p><br>
             <p><strong>Key Contributions:</strong></p>
@@ -947,6 +973,7 @@ const projectData = {
         tools: ["MS Project", "Power BI", "SQL", "DAX"],
         image: "extracted_images/image_6_3.png",
         caption: "Automated trigger flows used to pull schedule updates into deviation dashboards.",
+        topSvg: svgPowerBI,
         details: `
             <p><strong>Goal:</strong> Improve task-level execution visibility and planning alignment by accurately tracking schedule deviations.</p><br>
             <p><strong>Key Contributions:</strong></p>
@@ -971,8 +998,11 @@ function openModal(projectId) {
     // Populate Modal Header
     document.getElementById('modal-header-title').innerText = data.title;
     
-    // Populate Left Column
+    // Populate Left Column Tag & SVG
     document.getElementById('modal-primary-tag').innerText = data.primaryTag;
+    document.getElementById('modal-top-icon').innerHTML = data.topSvg; // <--- SVG Injected Here
+    
+    // Populate Left Column Text
     document.getElementById('modal-title').innerText = data.title;
     document.getElementById('modal-domain').innerHTML = `Domain/Function: <span>${data.domain}</span>`;
     document.getElementById('modal-desc').innerText = data.shortDesc;
@@ -1294,7 +1324,11 @@ window.onclick = function(event) {
         <div class="modal-body">
             <div class="modal-top-grid">
                 <div class="modal-left">
-                    <span class="modal-primary-tag" id="modal-primary-tag">Tag</span>
+                    <div class="modal-tag-row">
+                        <span class="modal-primary-tag" id="modal-primary-tag">Tag</span>
+                        <div class="modal-top-icon" id="modal-top-icon"></div>
+                    </div>
+                    
                     <h1 class="modal-title" id="modal-title">Project Title</h1>
                     <p class="modal-domain" id="modal-domain">Domain/Function: <span>Domain</span></p>
                     <p class="modal-desc" id="modal-desc">Short Description here.</p>

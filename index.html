@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priyanshu Upadhyay | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 50px;
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    nav a { color: #fff; margin-left: 30px; text-decoration: none; font-size: 1rem; }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 120px 20px;
+      background: linear-gradient(135deg, #6e00ff, #c400ff);
+      animation: fadeIn 1.5s ease-in;
+    }
+    .hero h1 { font-size: 3.5rem; font-weight: 700; }
+    .hero p { margin-top: 15px; font-size: 1.2rem; opacity: 0.9; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION */
+    section {
+      max-width: 1000px;
+      margin: 70px auto;
+      padding: 30px;
+    }
+
+    h2 { font-size: 2.2rem; margin-bottom: 20px; }
+
+    /* PROJECT CARDS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-8px); }
+
+    /* CONTACT */
+    .contact a {
+      color: #6e00ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      opacity: 0.6;
+    }
+
+    /* DARK MODE TOGGLE */
+    #themeToggle {
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+    }
+
+    body.light { background: #ffffff; color: #000; }
+    body.light nav a { color: #000; }
+    body.light #themeToggle { background: #000; color: #fff; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div style="font-size: 1.4rem; font-weight: 600;">Priyanshu</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="themeToggle">Light Mode</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Priyanshu Upadhyay</h1>
+    <p>Software Engineer • Cybersecurity Enthusiast • Competitive Programmer</p>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi! I am Priyanshu Upadhyay from Mathura, a Software Engineer with 4+ years of experience,
+      currently working at Flipkart. Skilled in backend development, system design, and security research.
+    </p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Software Engineer — Flipkart</strong></li>
+      <li><strong>Security Researcher (Multiple Hall of Fame Awards)</strong></li>
+    </ul>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="projects">
+
+      <div class="card">
+        <h3>AI Chatbot System</h3>
+        <p>An intelligent chatbot using NLP + ML, trained on domain-specific data with automated response accuracy.</p>
+      </div>
+
+      <div class="card">
+        <h3>Flipkart Internal Automation</h3>
+        <p>Automated workflows improving engineering productivity and response times.</p>
+      </div>
+
+      <div class="card">
+        <h3>Cybersecurity Vulnerability Scanner</h3>
+        <p>Custom-built scanner that identified multiple security weaknesses in real systems.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>LinkedIn: 
+      <a href="https://www.linkedin.com/in/priyanshuupadhyay/">linkedin.com/in/priyanshuupadhyay</a>
+    </p>
+    <p>Email: youremail@example.com</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>© 2026 Priyanshu Upadhyay — All Rights Reserved</footer>
+
+  <!-- DARK MODE SCRIPT -->
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      toggle.textContent =
+        document.body.classList.contains("light") ? "Dark Mode" : "Light Mode";
+    });
+  </script>
+
+</body>
+</html>

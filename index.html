@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Priyanshu Upadhyay | Portfolio</title>
 
 <style>
-/* THEME */
+/* COLORS */
 :root {
     --bg: #0d0d0d;
-    --text: #e8e8e8;
+    --text: #eaeaea;
     --card: #161616;
-    --accent: #f7ff3c; /* Fluorescent Yellow */
+    --accent: #e8ff1a; /* Fluorescent Yellow */
     --radius: 14px;
-    --soft: rgba(255,255,255,0.07);
 }
 
+/* GLOBAL */
 body {
     margin: 0;
-    font-family: "Inter", sans-serif;
     background: var(--bg);
     color: var(--text);
-   * ---------------- LEFT SIDEBAR ---------------- */
+    font-family: "Inter", sans-serif;
+    display: flex;
+}
+
+/* SIDEBAR */
 #sidebar {
     width: 300px;
-    padding: 30px 25px;
-    background: var(--card);
     height: 100vh;
-    box-shadow: 4px 0 20px rgba(0,0,0,0.6);
     position: fixed;
+    background: var(--card);
+    padding: 30px 25px;
+    box-shadow: 4px 0 18px rgba(0,0,0,0.6);
 }
 
 #profile-pic {
@@ -42,10 +45,10 @@ body {
 
 #name {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
+    margin-bottom: 5px;
 }
-
 #title {
     text-align: center;
     opacity: 0.8;
@@ -53,74 +56,74 @@ body {
     margin-bottom: 25px;
 }
 
-/* NAVIGATION */
+/* NAV LINKS */
 .nav-btn {
     display: block;
     width: 100%;
+    padding: 10px 0;
+    text-align: left;
     background: transparent;
     border: none;
     color: var(--text);
-    text-align: left;
-    font-size: 1.1rem;
-    padding: 12px 0;
     cursor: pointer;
+    font-size: 1.05rem;
 }
 .nav-btn:hover {
     color: var(--accent);
 }
 
-/* CONTACT ICONS */
+/* CONTACT ICON ROW */
 .icon-row {
-    margin-top: 25px;
+    margin-top: 30px;
 }
 .icon-row a {
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin: 12px 0;
     text-decoration: none;
     color: var(--text);
 }
 .icon-row svg {
     width: 22px;
-    fill: var(--accent);
+    height: 22px;
     margin-right: 10px;
+    fill: var(--accent);
 }
 
 /* RESUME BUTTON */
 #resume-btn {
     display: block;
     margin-top: 25px;
-    padding: 12px;
     text-align: center;
     background: var(--accent);
-    color: black;
+    padding: 12px;
     border-radius: 10px;
+    color: black;
     font-weight: 700;
     text-decoration: none;
 }
 
-/* ---------------- MAIN CONTENT ---------------- */
+/* MAIN CONTENT */
 #content {
     margin-left: 330px;
-    padding: 40px;
+    padding: 50px;
     width: calc(100% - 330px);
 }
 
-/* Each page -->
-hidden by default */
+/* PAGE SWITCH SECTIONS */
 .section {
     display: none;
 }
-.active {
+.section.active {
     display: block;
 }
 
-/* HEADERS */
+/* SECTION HEADER */
 .section h2 {
     font-size: 2rem;
     border-left: 5px solid var(--accent);
-    padding-left: 15px;
-    margin-bottom: 25px;
+    padding-left: 14px;
+    margin-bottom: 20px;
 }
 
 /* SKILLS GRID */
@@ -130,17 +133,15 @@ hidden by default */
     flex-wrap: wrap;
 }
 .skill {
-    background: var(--card);
-    padding: 15px 18px;
-    border-radius: var(--radius);
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 0 10px var(--soft);
+    gap: 12px;
+    background: var(--card);
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    box-shadow: 0 0 12px rgba(255,255,255,0.07);
 }
-.skill svg {
-    width: 25px;
-}
+.skill svg { width: 26px; }
 
 /* TIMELINE */
 .timeline {
@@ -155,16 +156,17 @@ hidden by default */
     color: var(--accent);
 }
 .entry span {
-    font-size: 0.85rem;
-    opacity: 0.7;
+    opacity: 0.6;
+    font-size: 0.9rem;
 }
 .entry p {
-    margin-top: 10px;
     opacity: 0.9;
+    margin-top: 10px;
 }
 </style>
 
 <script>
+/* PAGE SWITCH */
 function showPage(id) {
     document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
@@ -174,128 +176,104 @@ function showPage(id) {
 
 <body>
 
-<!-- LEFT SIDEBAR -->
+<!-- ✅ LEFT SIDEBAR -->
 <div id="sidebar">
 
-    <!-- FIXED + WORKING PROFILE IMAGE -->
-    <img src="profile.jpg" id="profile-pic" alt="profile photo">
+    <!-- ✅ FIXED PROFILE IMAGE -->
+    <img src="profile.jpg" id="profile-pic" alt="Profile">
 
     <div id="name">Priyanshu Upadhyay</div>
     <div id="title">Digital Transformation • Systems • Data Engineering</div>
 
+    <!-- MENU BUTTONS -->
     <button class="nav-btn" onclick="showPage('about')">About</button>
     <button class="nav-btn" onclick="showPage('skills')">Skills</button>
     <button class="nav-btn" onclick="showPage('experience')">Experience</button>
     <button class="nav-btn" onclick="showPage('projects')">Projects</button>
     <button class="nav-btn" onclick="showPage('contact')">Contact</button>
 
+    <!-- CONTACT ICON LINKS -->
     <div class="icon-row">
+
+        <!-- LINKEDIN -->
         linkedin.com/in/priyanshuupadhyay</a>
+
+        <!-- GITHUB -->
         github.com/priyanshu190920</a>
+
+        <!-- EMAIL -->
         mailto:priyanshu.electrical@gmail.com">
-            Email
+            <svg><rect width="22" height="15"></rect></svg>Email
         </a>
     </div>
 
+    <!-- RESUME BUTTON -->
     Priyanshu_CV.pdf" id="resume-btn">Download Resume</a>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- ✅ RIGHT CONTENT AREA -->
 <div id="content">
 
-<!-- ABOUT -->
+<!-- ABOUT PAGE -->
 <div id="about" class="section active">
     <h2>About Me</h2>
     <p>
-        Systems & Data Specialist with extensive experience in digital transformation, engineering systems, 
-        analytics automation, enterprise reporting, and project controls across large-scale environments.
+        Systems & Data Specialist with 14+ years of experience in digital transformation,
+        engineering systems, analytics automation, enterprise reporting, and project controls
+        across large-scale global environments.
     </p>
 </div>
 
-<!-- SKILLS -->
+<!-- SKILLS PAGE -->
 <div id="skills" class="section">
     <h2>Skills</h2>
 
     <div class="skill-grid">
 
-        <div class="skill">
-            Power BI
-            <span>Power BI</span>
-        </div>
+        <div class="skill">Power BI <svg><circle cx="13" cy="13" r="13" fill="var(--accent)"></circle></svg></div>
+        <div class="skill">Microsoft Fabric <svg><rect width="25" height="25" fill="var(--accent)"></rect></svg></div>
+        <div class="skill">SQL <svg><rect width="25" height="25" fill="var(--accent)"></rect></svg></div>
+        <div class="skill">Python <svg><circle cx="13" cy="13" r="13" fill="var(--accent)"></circle></svg></div>
+        <div class="skill">Excel <svg><circle cx="13" cy="13" r="13" fill="var(--accent)"></circle></svg></div>
+        <div class="skill">Azure <svg><rect width="25" height="25" fill="var(--accent)"></rect></svg></div>
 
-        <div class="skill">
-            Fabric
-            <span>Microsoft Fabric</span>
-        </div>
-
-        <div class="skill">
-            SQL
-            <span>SQL / T-SQL</span>
-        </div>
-
-        <div class="skill">
-            Python
-            <span>Python</span>
-        </div>
-
-        <div class="skill">
-            Excel
-            <span>Advanced Excel</span>
-        </div>
-
-        <div class="skill">
-            Azure
-            <span>Azure Cloud</span>
-        </div>
-
-        <div class="skill">
-            Jira
-            <span>Jira</span>
-        </div>
     </div>
 </div>
 
-<!-- EXPERIENCE -->
+<!-- EXPERIENCE PAGE -->
 <div id="experience" class="section">
     <h2>Experience</h2>
 
     <div class="timeline">
 
         <div class="entry">
-            <h3>Report Leader – IDOM (Sweden)</h3>
+            <h3>Report Leader — IDOM (Sweden)</h3>
             <span>Feb 2026 – Present</span>
-            <p>
-                Leading enterprise reporting for a €4.5B megaproject using Microsoft Fabric, Power BI, SQL, 
-                and engineering data systems.
-            </p>
+            <p>Leading enterprise reporting for a €4.5B Green Steel megaproject using Fabric pipelines & engineering data systems.</p>
         </div>
 
         <div class="entry">
-            <h3>Project Controls Specialist – Fluor (Denmark)</h3>
+            <h3>Project Controls Specialist — Fluor (Denmark)</h3>
             <span>May 2024 – Jan 2026</span>
-            <p>
-                Delivered 20+ dashboards, automated reporting using Fabric + Power BI, and improved visibility for project teams.
-            </p>
+            <p>Developed 20+ dashboards, automated reporting, improved schedule visibility by 40%.</p>
         </div>
 
         <div class="entry">
-            <h3>Technical Manager – Teknobuilt (Italy)</h3>
+            <h3>Technical Manager — Teknobuilt (Italy)</h3>
             <span>Apr 2019 – Oct 2023</span>
-            <p>
-                Integrated 20+ systems and implemented major digital transformation initiatives for EPC projects.
-            </p>
+            <p>Integrated 20+ enterprise systems, digitized EPC workflows, delivered major reporting transformations.</p>
         </div>
 
     </div>
 </div>
 
-<!-- PROJECTS -->
+<!-- PROJECTS PAGE -->
 <div id="projects" class="section">
     <h2>Projects</h2>
-    <p>Project cards can be added here.</p>
+    <p>Project gallery coming soon…</p>
 </div>
 
-<!-- CONTACT -->
+<!-- CONTACT PAGE -->
 <div id="contact" class="section">
     <h2>Contact</h2>
     <p>Email: priyanshu.electrical@gmail.com</p>

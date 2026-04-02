@@ -6,173 +6,167 @@
 <title>Priyanshu Upadhyay | Portfolio</title>
 
 <style>
+/* THEME */
 :root {
     --bg: #0d0d0d;
-    --text: #eaeaea;
+    --text: #e8e8e8;
     --card: #161616;
-    --accent: #F7FF3C; /* Fluorescent Yellow */
+    --accent: #f7ff3c; /* Fluorescent Yellow */
     --radius: 14px;
+    --soft: rgba(255,255,255,0.07);
 }
 
 body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-family: "Inter", sans-serif;
-    margin: 0;
-    display: flex;
-}
-
-/* ---------------- LEFT SIDEBAR ---------------- */
+   * ---------------- LEFT SIDEBAR ---------------- */
 #sidebar {
-    width: 280px;
+    width: 300px;
+    padding: 30px 25px;
     background: var(--card);
     height: 100vh;
-    padding: 25px;
-    box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+    box-shadow: 4px 0 20px rgba(0,0,0,0.6);
     position: fixed;
 }
 
 #profile-pic {
-    width: 160px;
-    height: 160px;
-    border-radius: 14px;
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
     object-fit: cover;
-    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 #name {
-    font-size: 1.6rem;
+    text-align: center;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
 #title {
-    font-size: 0.95rem;
+    text-align: center;
     opacity: 0.8;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
 }
 
-/* Menu */
+/* NAVIGATION */
 .nav-btn {
     display: block;
     width: 100%;
     background: transparent;
     border: none;
-    text-align: left;
-    padding: 12px 0;
     color: var(--text);
-    font-size: 1.05rem;
+    text-align: left;
+    font-size: 1.1rem;
+    padding: 12px 0;
     cursor: pointer;
 }
-
 .nav-btn:hover {
     color: var(--accent);
 }
 
-/* Icons Row */
+/* CONTACT ICONS */
 .icon-row {
-    margin-top: 20px;
+    margin-top: 25px;
 }
-
 .icon-row a {
     display: flex;
     align-items: center;
     margin: 10px 0;
     text-decoration: none;
     color: var(--text);
-    font-size: 0.95rem;
 }
-
 .icon-row svg {
     width: 22px;
-    margin-right: 10px;
     fill: var(--accent);
+    margin-right: 10px;
 }
 
-/* Resume Button */
-.resume-btn {
-    margin-top: 25px;
+/* RESUME BUTTON */
+#resume-btn {
     display: block;
-    width: 100%;
-    padding: 12px 18px;
-    border-radius: 10px;
+    margin-top: 25px;
+    padding: 12px;
     text-align: center;
     background: var(--accent);
-    color: #000;
+    color: black;
+    border-radius: 10px;
     font-weight: 700;
     text-decoration: none;
 }
 
-/* ---------------- RIGHT CONTENT ---------------- */
+/* ---------------- MAIN CONTENT ---------------- */
 #content {
-    margin-left: 310px;
+    margin-left: 330px;
     padding: 40px;
-    width: calc(100% - 310px);
+    width: calc(100% - 330px);
 }
 
-/* Hide all sections by default */
+/* Each page -->
+hidden by default */
 .section {
     display: none;
 }
-
-/* Active section */
 .active {
     display: block;
 }
 
-/* Section Title */
+/* HEADERS */
 .section h2 {
     font-size: 2rem;
     border-left: 5px solid var(--accent);
-    padding-left: 14px;
-    margin-bottom: 20px;
+    padding-left: 15px;
+    margin-bottom: 25px;
 }
 
-/* ---------------- SKILL ICONS ---------------- */
+/* SKILLS GRID */
 .skill-grid {
     display: flex;
-    gap: 22px;
+    gap: 15px;
     flex-wrap: wrap;
 }
-
 .skill {
     background: var(--card);
-    padding: 15px 20px;
+    padding: 15px 18px;
     border-radius: var(--radius);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    box-shadow: 0 0 10px var(--soft);
+}
+.skill svg {
+    width: 25px;
 }
 
-/* ---------------- TIMELINE ---------------- */
+/* TIMELINE */
 .timeline {
     border-left: 3px solid var(--accent);
     padding-left: 25px;
 }
-
 .entry {
     margin-bottom: 30px;
 }
-
 .entry h3 {
+    margin: 0;
     color: var(--accent);
-    margin-bottom: 8px;
 }
-
 .entry span {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.7;
 }
-
 .entry p {
-    opacity: 0.9;
     margin-top: 10px;
+    opacity: 0.9;
 }
 </style>
 
 <script>
-// Page switching logic
 function showPage(id) {
-    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
 </script>
@@ -182,10 +176,12 @@ function showPage(id) {
 
 <!-- LEFT SIDEBAR -->
 <div id="sidebar">
-    extracted_images/image_0_0.png" id="profile-pic">
+
+    <!-- FIXED + WORKING PROFILE IMAGE -->
+    <img src="profile.jpg" id="profile-pic" alt="profile photo">
 
     <div id="name">Priyanshu Upadhyay</div>
-    <div id="title">Digital Transformation • Systems Specialist • Data Engineering</div>
+    <div id="title">Digital Transformation • Systems • Data Engineering</div>
 
     <button class="nav-btn" onclick="showPage('about')">About</button>
     <button class="nav-btn" onclick="showPage('skills')">Skills</button>
@@ -196,21 +192,23 @@ function showPage(id) {
     <div class="icon-row">
         linkedin.com/in/priyanshuupadhyay</a>
         github.com/priyanshu190920</a>
-        mailto:priyanshu.electrical@gmail.com">Email</a>
+        mailto:priyanshu.electrical@gmail.com">
+            Email
+        </a>
     </div>
 
-    Priyanshu_CV.pdf" class="resume-btn">Download Resume</a>
+    Priyanshu_CV.pdf" id="resume-btn">Download Resume</a>
 </div>
 
-<!-- RIGHT MAIN CONTENT -->
+<!-- MAIN CONTENT -->
 <div id="content">
 
 <!-- ABOUT -->
 <div id="about" class="section active">
     <h2>About Me</h2>
     <p>
-        Systems & Data Specialist with 14+ years of experience in large‑scale digital transformation,
-        engineering systems, analytics, reporting automation, and enterprise data solutions.
+        Systems & Data Specialist with extensive experience in digital transformation, engineering systems, 
+        analytics automation, enterprise reporting, and project controls across large-scale environments.
     </p>
 </div>
 
@@ -250,6 +248,10 @@ function showPage(id) {
             <span>Azure Cloud</span>
         </div>
 
+        <div class="skill">
+            Jira
+            <span>Jira</span>
+        </div>
     </div>
 </div>
 
@@ -263,7 +265,8 @@ function showPage(id) {
             <h3>Report Leader – IDOM (Sweden)</h3>
             <span>Feb 2026 – Present</span>
             <p>
-                Leading reporting for a €4.5B megaproject, building automated Fabric pipelines, Power BI dashboards, and engineering analytics systems.
+                Leading enterprise reporting for a €4.5B megaproject using Microsoft Fabric, Power BI, SQL, 
+                and engineering data systems.
             </p>
         </div>
 
@@ -271,7 +274,7 @@ function showPage(id) {
             <h3>Project Controls Specialist – Fluor (Denmark)</h3>
             <span>May 2024 – Jan 2026</span>
             <p>
-                Developed 20+ dashboards, automated reporting, improved schedule visibility by 40%, and trained 200+ engineers.
+                Delivered 20+ dashboards, automated reporting using Fabric + Power BI, and improved visibility for project teams.
             </p>
         </div>
 
@@ -279,7 +282,7 @@ function showPage(id) {
             <h3>Technical Manager – Teknobuilt (Italy)</h3>
             <span>Apr 2019 – Oct 2023</span>
             <p>
-                Integrated 20+ enterprise systems, built analytics for EPC projects, drove digital transformation programs.
+                Integrated 20+ systems and implemented major digital transformation initiatives for EPC projects.
             </p>
         </div>
 
@@ -289,7 +292,7 @@ function showPage(id) {
 <!-- PROJECTS -->
 <div id="projects" class="section">
     <h2>Projects</h2>
-    <p>Project section coming next…</p>
+    <p>Project cards can be added here.</p>
 </div>
 
 <!-- CONTACT -->

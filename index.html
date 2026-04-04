@@ -140,13 +140,49 @@
             .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; } 
             .skill-tag { background: #1e1e1f; border: 1px solid var(--border-color); color: var(--text-primary); padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; text-transform: uppercase; } 
             
-            /* TIMELINE FOR EXPERIENCE */
-            .timeline { position: relative; padding-left: 30px; } 
-            .timeline::before { content: ''; position: absolute; left: 7px; top: 5px; bottom: 0; width: 1px; background: var(--border-color); } 
-            .entry { margin-bottom: 35px; position: relative; } 
-            .entry::before { content: ''; position: absolute; left: -27px; top: 5px; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 4px #2a2a2c; } 
-            .entry h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 5px; } 
-            .entry span { color: var(--accent); font-size: 0.85rem; display: block; margin-bottom: 12px; } 
+            /* TIMELINE FOR EXPERIENCE (NEW DESIGN) */
+            .timeline { position: relative; padding-left: 60px; margin-top: 40px; } 
+            .timeline::before { content: ''; position: absolute; left: 19px; top: 0; bottom: 0; width: 1px; background: var(--border-color); } 
+            .entry { 
+                background: var(--card-bg); 
+                border: 1px solid var(--border-color); 
+                border-radius: 16px; 
+                padding: 24px; 
+                margin-bottom: 32px; 
+                position: relative; 
+            } 
+            .timeline-icon {
+                position: absolute;
+                left: -60px;
+                top: 24px;
+                width: 40px;
+                height: 40px;
+                background: var(--bg-color);
+                border: 1px solid var(--border-color);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 2;
+            }
+            .timeline-icon svg { width: 18px; height: 18px; stroke: var(--accent); }
+            
+            .entry-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+            .entry-title { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+            .entry-company { font-size: 1rem; color: var(--text-muted); }
+            .entry-company span { color: var(--accent); font-weight: 600; }
+            .entry-date { 
+                background: #141414; 
+                border: 1px solid var(--border-color); 
+                padding: 6px 14px; 
+                border-radius: 20px; 
+                font-size: 0.8rem; 
+                color: var(--text-muted); 
+                font-family: monospace; 
+            }
+            .entry-desc { color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem; }
+            .entry-desc p { margin-bottom: 12px; }
+            .entry-desc p:last-child { margin-bottom: 0; }
             
             /* CONTACT GRID */
             .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 35px; } 
@@ -159,29 +195,62 @@
             .contact-card-value a { color: var(--text-primary); text-decoration: none; } 
             .contact-card-value a:hover { text-decoration: underline; color: var(--accent); } 
             
-            /* PROJECTS GRID */
-            .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 30px; } 
+            /* PROJECTS GRID (NEW DESIGN) */
+            .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 30px; } 
             .project-box { 
-                background: #222223; border: 1px solid var(--border-color); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; transition: transform 0.3s, border-color 0.3s; 
+                background: var(--card-bg); 
+                border: 1px solid var(--border-color); 
+                border-radius: 16px; 
+                padding: 20px; 
+                display: flex; 
+                flex-direction: column; 
+                transition: transform 0.3s, border-color 0.3s; 
             } 
             .project-box:hover { transform: translateY(-4px); border-color: var(--accent); } 
-            .project-thumb { width: 100%; aspect-ratio: 16/9; border-radius: 10px; object-fit: cover; margin-bottom: 16px; background: #1a1a1a; } 
+            .project-thumb { width: 100%; aspect-ratio: 16/9; border-radius: 10px; object-fit: cover; margin-bottom: 20px; background: #1a1a1a; border: 1px solid var(--border-color); } 
             
             .project-domain { 
-                font-size: 0.75rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.75rem; 
+                color: var(--accent); 
+                margin-bottom: 12px; 
+                text-transform: uppercase; 
+                font-weight: 600; 
+                letter-spacing: 0.5px;
             } 
-            .project-title { 
-                font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.3; 
-            } 
+            .project-domain svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+            .project-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; line-height: 1.3; } 
             .project-short-desc {
-                font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.5; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+                font-size: 0.9rem; 
+                color: var(--text-secondary); 
+                margin-bottom: 24px; 
+                line-height: 1.6; 
+                flex-grow: 1; 
+                display: -webkit-box; 
+                -webkit-line-clamp: 3; 
+                -webkit-box-orient: vertical; 
+                overflow: hidden;
             }
-            .project-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; } 
-            .btn-outline { 
-                background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; text-decoration: none; transition: all 0.3s; cursor: pointer; 
+            .project-footer { display: flex; justify-content: flex-start; align-items: center; margin-top: auto; } 
+            .btn-link { 
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: transparent; 
+                border: none; 
+                color: var(--accent); 
+                padding: 0; 
+                font-size: 0.9rem; 
+                font-weight: 600;
+                text-decoration: none; 
+                transition: opacity 0.3s; 
+                cursor: pointer; 
             } 
-            .btn-outline:hover { border-color: var(--accent); color: var(--accent); } 
-            .tool-icon { width: 24px; height: 24px; object-fit: contain; } 
+            .btn-link:hover { opacity: 0.8; } 
+            .btn-link svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.3s; }
+            .btn-link:hover svg { transform: translateX(4px); }
             
             /* MODAL (POPUP) CSS */
             #project-modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); align-items: center; justify-content: center; backdrop-filter: blur(5px); } 
@@ -253,7 +322,7 @@
                     domain: "Data Engineering",
                     shortDesc: "Built a single source of truth for project performance by integrating planning systems, cost controls, engineering deliverables, and construction feeds.",
                     tools: ["Microsoft Fabric", "Power BI", "SQL", "Python", "Delta Lake"],
-                    image: "project-1.png",
+                    image: "extracted_images/project-1.png",
                     caption: "Architecture diagram showing the end-to-end data flow using Medallion Architecture in Microsoft Fabric.",
                     topSvg: svgFabric,
                     details: `
@@ -279,7 +348,7 @@
                     domain: "Project Management",
                     shortDesc: "Developed a real-time project progress dashboard for tracking construction milestones, engineering deliverables, and procurement status.",
                     tools: ["Power BI", "SQL", "DAX", "Power Query"],
-                    image: "project-2.png",
+                    image: "extracted_images/project-2.png",
                     caption: "A unified KPI-driven dashboard displaying progress to date, earned hours, plan vs actual, and performance factors.",
                     topSvg: svgPowerBI,
                     details: `
@@ -303,7 +372,7 @@
                     domain: "Project Controls",
                     shortDesc: "Developed a status report for 20+ Contractors working on a project, providing insights into progress, resource utilization, and schedule performance.",
                     tools: ["Power BI", "SQL", "DAX", "Variance Analysis"],
-                    image: "project-3.png",
+                    image: "extracted_images/project-3.png",
                     caption: "Detailed progress tracking report at the building/unit area level, enabling visibility into contractor performance.",
                     topSvg: svgPowerBI,
                     details: `
@@ -328,7 +397,7 @@
                     domain: "Planning & Time-Series",
                     shortDesc: "Supported long-term planning and resource forecasting by visualizing project trends over an extended timeline.",
                     tools: ["Power BI", "SQL", "Time-Series Analysis", "Power Query"],
-                    image: "project-4.png",
+                    image: "extracted_images/project-4.png",
                     caption: "Time-series forecasting model displaying base scope vs. variation curves over a multi-year project lifecycle.",
                     topSvg: svgSQL,
                     details: `
@@ -349,10 +418,10 @@
                 proj5: {
                     title: "Weekly Manpower Tracking",
                     primaryTag: "Workforce Analytics",
-                    domain: "Workforce Management",
+                    domain: "Workforce Analytics",
                     shortDesc: "Built a workforce planning dashboard tracking manpower allocation, utilization rates, and forecasted headcount across project phases.",
                     tools: ["Power BI", "SQL", "DAX", "Workforce Analytics"],
-                    image: "project-5.png",
+                    image: "extracted_images/project-5.png",
                     caption: "Analytics charting tools used to track FTE utilization and highlight under/over-resourcing trends.",
                     topSvg: svgPowerBI,
                     details: `
@@ -376,7 +445,7 @@
                     domain: "Scheduling",
                     shortDesc: "Automated trigger flows used to pull schedule updates into deviation dashboards.",
                     tools: ["MS Project", "Power BI", "SQL", "DAX"],
-                    image: "project-6.png",
+                    image: "extracted_images/project-6.png",
                     caption: "Automated trigger flows used to pull schedule updates into deviation dashboards.",
                     topSvg: svgPowerBI,
                     details: `
@@ -512,7 +581,7 @@
                         </div>                         
                         <div class="stat-box"> 
                             <div class="icon"> 
-                                <img src="extracted_images/image_0_0.png" alt="Statistics Icon" class="your-accent-class"/> 
+                                <img src="extracted_images/image_0_0.png" alt="Statistics Icon" style="width: 100%; height: 100%; object-fit: contain;"/> 
                             </div>                             
                             <div class="stat-info"> 
                                 <div class="number">20+</div>                                 
@@ -563,21 +632,53 @@
                     <h2>Experience</h2> 
                     <div class="timeline"> 
                         <div class="entry"> 
-                            <h3>Report Leader</h3> 
-                            <span>IDOM (Europe) | Feb 2026 – Present</span> 
-                            <p>Leading enterprise reporting for a €4.5B Green Steel megaproject using Fabric pipelines & engineering data systems.</p> 
-                            <p>Engineered automated 20+ ETL pipelines in Microsoft Fabric (Dataflow Gen2) and integrated workflows using Power Automate, improving reporting efficiency and reliability.</p> 
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            </div>
+                            <div class="entry-header">
+                                <div>
+                                    <h3 class="entry-title">Report Leader</h3> 
+                                    <div class="entry-company"><span>IDOM</span> | Sweden</div>
+                                </div>
+                                <div class="entry-date">Feb 2026 – Present</div>
+                            </div>
+                            <div class="entry-desc">
+                                <p>Leading enterprise reporting for a €4.5B Green Steel megaproject using Fabric pipelines & engineering data systems.</p> 
+                                <p>Engineered automated 20+ ETL pipelines in Microsoft Fabric (Dataflow Gen2) and integrated workflows using Power Automate, improving reporting efficiency and reliability.</p> 
+                            </div>
                         </div>                         
+                        
                         <div class="entry"> 
-                            <h3>Project Controls Specialist</h3> 
-                            <span>Fluor (Europe) | May 2024 – Jan 2026</span> 
-                            <p>Developed 20+ dashboards, automated reporting workflows, and improved schedule visibility by 40%.</p> 
-                            <p>Partnered with Project Directors to conceptualize reporting systems, enhancing project phase visibility by 40%.</p> 
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            </div>
+                            <div class="entry-header">
+                                <div>
+                                    <h3 class="entry-title">Project Controls Specialist</h3> 
+                                    <div class="entry-company"><span>Fluor</span> | Denmark</div>
+                                </div>
+                                <div class="entry-date">May 2024 – Jan 2026</div>
+                            </div>
+                            <div class="entry-desc">
+                                <p>Developed 20+ dashboards, automated reporting workflows, and improved schedule visibility by 40%.</p> 
+                                <p>Partnered with Project Directors to conceptualize reporting systems, enhancing project phase visibility by 40%.</p> 
+                            </div>
                         </div>                         
+                        
                         <div class="entry"> 
-                            <h3>Technical Manager</h3> 
-                            <span>Teknobuilt (Europe) | Apr 2019 – Oct 2023</span> 
-                            <p>Integrated 20+ enterprise systems, digitized EPC workflows, and delivered major reporting transformations for global teams.</p> 
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            </div>
+                            <div class="entry-header">
+                                <div>
+                                    <h3 class="entry-title">Technical Manager</h3> 
+                                    <div class="entry-company"><span>Teknobuilt</span> | Italy</div>
+                                </div>
+                                <div class="entry-date">Apr 2019 – Oct 2023</div>
+                            </div>
+                            <div class="entry-desc">
+                                <p>Integrated 20+ enterprise systems, digitized EPC workflows, and delivered major reporting transformations for global teams.</p> 
+                            </div>
                         </div>                         
                     </div>                     
                 </div>                 
@@ -586,63 +687,75 @@
                     <h2>My Projects</h2> 
                     <div class="projects-grid"> 
                         <div class="project-box"> 
-                            <img src="project-1.png" alt="Fabric Architecture" class="project-thumb"> 
-                            <p class="project-domain">Data Engineering</p> 
+                            <img src="extracted_images/project-1.png" alt="Fabric Architecture" class="project-thumb"> 
+                            <div class="project-domain">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm10-2.5v1c0 .4-.3.8-.7.9l-1.9.3c-.2.7-.4 1.4-.8 2l1.3 1.5c.3.3.3.8 0 1.1l-.7.7c-.3.3-.8.3-1.1 0l-1.5-1.3c-.6.4-1.3.6-2 .8l-.3 1.9c-.1.4-.5.7-.9.7h-1c-.4 0-.8-.3-.9-.7l-.3-1.9c-.7-.2-1.4-.4-2-.8l-1.5 1.3c-.3.3-.8.3-1.1 0l-.7-.7c-.3-.3-.3-.8 0-1.1l1.3-1.5c-.4-.6-.6-1.3-.8-2l-1.9-.3c-.4-.1-.7-.5-.7-.9v-1c0-.4.3-.8.7-.9l1.9-.3c.2-.7.4-1.4.8-2L3 6.6c-.3-.3-.3-.8 0-1.1l.7-.7c.3-.3.8-.3 1.1 0l1.5 1.3c.6-.4 1.3-.6 2-.8l.3-1.9c.1-.4.5-.7.9-.7h1c.4 0 .8.3.9.7l.3 1.9c.7.2 1.4.4 2 .8l1.5-1.3c.3-.3.8-.3 1.1 0l.7.7c.3.3.3.8 0 1.1l-1.3 1.5c.4.6.6 1.3.8 2l1.9.3c.4.1.7.5.7.9z"/></svg>
+                                Data Engineering
+                            </div>
                             <h3 class="project-title">Enterprise Data Architecture & Automation</h3> 
                             <p class="project-short-desc">Built a single source of truth for project performance by integrating planning systems, cost controls, engineering deliverables, and construction feeds.</p>
                             <div class="project-footer"> 
-                                <button class="btn-outline" onclick="openModal('proj1')">See My Work</button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <button class="btn-link" onclick="openModal('proj1')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
-                            <img src="project-2.png" alt="Project Progress Dashboard" class="project-thumb"> 
-                            <p class="project-domain">Project Management</p> 
+                            <img src="extracted_images/project-2.png" alt="Project Progress Dashboard" class="project-thumb"> 
+                            <div class="project-domain">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                                Project Management
+                            </div>
                             <h3 class="project-title">Project Progress Dashboard</h3> 
                             <p class="project-short-desc">Developed a real-time project progress dashboard for tracking construction milestones, engineering deliverables, and procurement status.</p>
                             <div class="project-footer"> 
-                                <button class="btn-outline" onclick="openModal('proj2')">See My Work</button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <button class="btn-link" onclick="openModal('proj2')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
-                            <img src="project-3.png" alt="Contractor Detail Report" class="project-thumb"> 
-                            <p class="project-domain">Project Controls</p> 
+                            <img src="extracted_images/project-3.png" alt="Contractor EVM & Status Report" class="project-thumb"> 
+                            <div class="project-domain">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+                                Project Controls
+                            </div>
                             <h3 class="project-title">Contractor EVM & Status Report</h3> 
                             <p class="project-short-desc">Developed a status report for 20+ Contractors working on a project, providing insights into progress, resource utilization, and schedule performance.</p>
                             <div class="project-footer"> 
-                                <button class="btn-outline" onclick="openModal('proj3')">See My Work</button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <button class="btn-link" onclick="openModal('proj3')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
-                            <img src="project-4.png" alt="Project Trend Analysis" class="project-thumb"> 
-                            <p class="project-domain">Planning & Time-Series</p> 
+                            <img src="extracted_images/project-4.png" alt="Trend Analysis & Forecasting" class="project-thumb"> 
+                            <div class="project-domain">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+                                Planning & Time-Series
+                            </div>
                             <h3 class="project-title">Trend Analysis & Forecasting</h3> 
                             <p class="project-short-desc">Supported long-term planning and resource forecasting by visualizing project trends over an extended timeline.</p>
                             <div class="project-footer"> 
-                                <button class="btn-outline" onclick="openModal('proj4')">See My Work</button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <button class="btn-link" onclick="openModal('proj4')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
-                            <img src="project-5.png" alt="Weekly Manpower Tracking" class="project-thumb"> 
-                            <p class="project-domain">Workforce Analytics</p> 
+                            <img src="extracted_images/project-5.png" alt="Weekly Manpower Tracking" class="project-thumb"> 
+                            <div class="project-domain">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+                                Workforce Analytics
+                            </div>
                             <h3 class="project-title">Weekly Manpower Tracking</h3> 
                             <p class="project-short-desc">Built a workforce planning dashboard tracking manpower allocation, utilization rates, and forecasted headcount across project phases.</p>
                             <div class="project-footer"> 
-                                <button class="btn-outline" onclick="openModal('proj5')">See My Work</button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <button class="btn-link" onclick="openModal('proj5')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
-                            <img src="project-6.png" alt="Schedule Deviation Tracker" class="project-thumb"> 
-                            <p class="project-domain">Scheduling</p> 
+                            <img src="extracted_images/project-6.png" alt="Schedule Deviation & Timeline Tracker" class="project-thumb"> 
+                            <div class="project-domain">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+                                Scheduling
+                            </div>
                             <h3 class="project-title">Schedule Deviation & Timeline Tracker</h3> 
                             <p class="project-short-desc">Automated trigger flows used to pull schedule updates into deviation dashboards.</p>
                             <div class="project-footer"> 
-                                <button class="btn-outline" onclick="openModal('proj6')">See My Work</button>                                 
-                                <img src="extracted_images/image_1_1.png" class="tool-icon" alt="Data Tool"> 
+                                <button class="btn-link" onclick="openModal('proj6')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
                             </div>                             
                         </div>                         
                     </div>                     

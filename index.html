@@ -96,7 +96,7 @@
             /* MAIN CONTENT */
             #main-content { flex-grow: 1; position: relative; padding-top: 80px; } 
             
-            /* NAVBAR (TOP RIGHT PILL) */
+            /* NAVBAR */
             .navbar { 
                 position: absolute; top: 0; right: 0; background: #282829; border: 1px solid var(--border-color); border-radius: 0 20px 0 20px; display: flex; padding: 20px 30px; gap: 30px; 
             } 
@@ -114,308 +114,96 @@
                 to { opacity: 1; transform: translateY(0); } 
             } 
             
-            /* SECTION HEADER WITH YELLOW UNDERLINE */
-            .section h2 { 
-                font-size: 2rem; font-weight: 600; margin-bottom: 25px; position: relative; padding-bottom: 15px; 
-            } 
-            .section h2::after { 
-                content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 5px; background: var(--accent); border-radius: 5px; 
-            } 
-            .section p { 
-                color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; font-size: 0.95rem; 
-            } 
+            .section h2 { font-size: 2rem; font-weight: 600; margin-bottom: 25px; position: relative; padding-bottom: 15px; } 
+            .section h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 5px; background: var(--accent); border-radius: 5px; } 
+            .section p { color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; font-size: 0.95rem; } 
             
             /* STATS BOXES */
             .stats-grid { display: flex; gap: 15px; margin: 40px 0; flex-wrap: wrap; } 
-            .stat-box { 
-                background: #2a2a2c; border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 180px; 
-            } 
+            .stat-box { background: #2a2a2c; border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 180px; } 
             .stat-box .icon { width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; } 
             .stat-box .icon svg { width: 100%; height: 100%; } 
             .stat-info .number { color: var(--accent); font-size: 1.5rem; font-weight: 700; margin-bottom: 3px; } 
             .stat-info .label { color: var(--text-secondary); font-size: 0.8rem; } 
             
-            /* KEY SKILLS (TAGS) */
-            .skills-heading { font-size: 1.6rem; font-weight: 600; margin: 40px 0 20px 0; } 
+            /* SKILLS (TAGS & ICONS) */
+            .skills-heading { font-size: 1.4rem; font-weight: 600; margin: 30px 0 15px 0; } 
             .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; } 
-            .skill-tag { background: #1e1e1f; border: 1px solid var(--border-color); color: var(--text-primary); padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; text-transform: uppercase; } 
+            .skill-tag { 
+                background: #1e1e1f; border: 1px solid var(--border-color); color: var(--text-primary); 
+                padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; text-transform: uppercase; 
+                display: flex; align-items: center; gap: 8px; 
+            } 
+            .skill-icon { width: 20px; height: 20px; object-fit: contain; }
             
-            /* TIMELINE FOR EXPERIENCE (WITH NEW HOVER EFFECTS) */
+            /* TIMELINE FOR EXPERIENCE */
             .timeline { position: relative; padding-left: 60px; margin-top: 40px; } 
             .timeline::before { content: ''; position: absolute; left: 19px; top: 0; bottom: 0; width: 1px; background: var(--border-color); } 
             .entry { 
-                background: var(--card-bg); 
-                border: 1px solid var(--border-color); 
-                border-radius: 16px; 
-                padding: 24px; 
-                margin-bottom: 32px; 
-                position: relative; 
-                transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+                background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; margin-bottom: 32px; position: relative; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             } 
-            .entry:hover {
-                transform: translateY(-4px);
-                border-color: var(--accent);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            }
-            .timeline-icon {
-                position: absolute;
-                left: -60px;
-                top: 24px;
-                width: 40px;
-                height: 40px;
-                background: var(--bg-color);
-                border: 1px solid var(--border-color);
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 2;
-                transition: all 0.3s ease;
-            }
+            .entry:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+            .timeline-icon { position: absolute; left: -60px; top: 24px; width: 40px; height: 40px; background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 2; transition: all 0.3s ease; }
             .timeline-icon svg { width: 18px; height: 18px; stroke: var(--accent); transition: stroke 0.3s ease; }
-            .entry:hover .timeline-icon {
-                background: var(--accent);
-                border-color: var(--accent);
-                box-shadow: 0 0 15px rgba(255,219,112,0.3);
-            }
-            .entry:hover .timeline-icon svg {
-                stroke: #000;
-            }
+            .entry:hover .timeline-icon { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 15px rgba(255,219,112,0.3); }
+            .entry:hover .timeline-icon svg { stroke: #000; }
             
             .entry-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
             .entry-title { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
             .entry-company { font-size: 1rem; color: var(--text-muted); }
             .entry-company span { color: var(--accent); font-weight: 600; }
-            .entry-date { 
-                background: #141414; 
-                border: 1px solid var(--border-color); 
-                padding: 6px 14px; 
-                border-radius: 20px; 
-                font-size: 0.8rem; 
-                color: var(--text-muted); 
-                font-family: monospace; 
-            }
+            .entry-date { background: #141414; border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; color: var(--text-muted); font-family: monospace; }
             .entry-desc { color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem; }
             .entry-desc p { margin-bottom: 12px; }
             .entry-desc p:last-child { margin-bottom: 0; }
             
             /* CONTACT SECTION & FORM */
-            .contact-wrapper {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-                margin-top: 35px;
-            }
+            .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 35px; }
             .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } 
-            .contact-card { 
-                background: #2a2a2c; 
-                border: 1px solid var(--border-color); 
-                border-radius: 14px; 
-                padding: 25px 20px; 
-                display: flex; 
-                align-items: center; 
-                gap: 15px; 
-                transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            } 
-            .contact-card:hover {
-                transform: translateY(-4px);
-                border-color: var(--accent);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            }
-            .contact-card .icon-box-large { 
-                width: 50px; 
-                height: 50px; 
-                display: flex; 
-                justify-content: center; 
-                align-items: center; 
-                flex-shrink: 0; 
-                border-radius: 12px;
-                background: #1e1e1f;
-                transition: all 0.3s ease;
-            } 
+            .contact-card { background: #2a2a2c; border: 1px solid var(--border-color); border-radius: 14px; padding: 25px 20px; display: flex; align-items: center; gap: 15px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; } 
+            .contact-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+            .contact-card .icon-box-large { width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; border-radius: 12px; background: #1e1e1f; transition: all 0.3s ease; } 
             .contact-card .icon-box-large svg { width: 28px; height: 28px; fill: var(--accent); transition: fill 0.3s ease; } 
-            
-            /* Hover interactions for icon within contact card */
-            .contact-card:hover .icon-box-large {
-                background: var(--accent);
-                border-color: var(--accent);
-                box-shadow: 0 0 15px rgba(255,219,112,0.3);
-            }
-            .contact-card:hover .icon-box-large svg {
-                fill: #000;
-            }
-            
+            .contact-card:hover .icon-box-large { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 15px rgba(255,219,112,0.3); }
+            .contact-card:hover .icon-box-large svg { fill: #000; }
             .contact-card-info { display: flex; flex-direction: column; } 
             .contact-card-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 5px; } 
             .contact-card-value { font-size: 1rem; color: var(--text-primary); text-decoration: none; overflow-wrap: break-word; word-break: break-word; } 
             .contact-card-value a { color: var(--text-primary); text-decoration: none; transition: color 0.3s; } 
             .contact-card-value a:hover { text-decoration: underline; color: var(--accent); } 
             
-            /* CONTACT FORM CSS */
-            .contact-form-card {
-                background: var(--card-bg);
-                border: 1px solid var(--border-color);
-                border-radius: 16px;
-                padding: 30px;
-            }
-            .form-title {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                font-size: 1.3rem;
-                font-weight: 700;
-                color: var(--text-primary);
-                margin-bottom: 24px;
-            }
-            .form-title svg {
-                width: 24px;
-                height: 24px;
-                stroke: var(--accent);
-                fill: none;
-            }
-            .form-input-group {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                margin-bottom: 24px;
-            }
-            .form-input {
-                width: 100%;
-                background: #141414;
-                border: 1px solid var(--border-color);
-                border-radius: 12px;
-                padding: 16px 20px;
-                color: var(--text-primary);
-                font-family: inherit;
-                font-size: 0.95rem;
-                transition: border-color 0.3s;
-            }
-            .form-input::placeholder {
-                color: var(--text-muted);
-            }
-            .form-input:focus {
-                outline: none;
-                border-color: var(--accent);
-            }
-            textarea.form-input {
-                min-height: 140px;
-                resize: vertical;
-            }
-            .form-submit-btn {
-                width: 100%;
-                background: var(--accent);
-                color: #000;
-                border: none;
-                border-radius: 12px;
-                padding: 16px;
-                font-size: 1rem;
-                font-weight: 600;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-                transition: opacity 0.3s;
-            }
-            .form-submit-btn:hover {
-                opacity: 0.9;
-            }
-            .form-submit-btn svg {
-                width: 18px;
-                height: 18px;
-                stroke: currentColor;
-                fill: none;
-            }
+            .contact-form-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; }
+            .form-title { display: flex; align-items: center; gap: 12px; font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 24px; }
+            .form-title svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; }
+            .form-input-group { display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px; }
+            .form-input { width: 100%; background: #141414; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 20px; color: var(--text-primary); font-family: inherit; font-size: 0.95rem; transition: border-color 0.3s; }
+            .form-input::placeholder { color: var(--text-muted); }
+            .form-input:focus { outline: none; border-color: var(--accent); }
+            textarea.form-input { min-height: 140px; resize: vertical; }
+            .form-submit-btn { width: 100%; background: var(--accent); color: #000; border: none; border-radius: 12px; padding: 16px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.3s; }
+            .form-submit-btn:hover { opacity: 0.9; }
+            .form-submit-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; }
             
-            /* PROJECTS GRID (WITH ZOOM EFFECT & ICONS) */
+            /* PROJECTS GRID */
             .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 30px; } 
-            .project-box { 
-                background: var(--card-bg); 
-                border: 1px solid var(--border-color); 
-                border-radius: 16px; 
-                padding: 20px; 
-                display: flex; 
-                flex-direction: column; 
-                transition: transform 0.3s, border-color 0.3s; 
-            } 
+            .project-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; transition: transform 0.3s, border-color 0.3s; } 
             .project-box:hover { transform: translateY(-4px); border-color: var(--accent); } 
             
-            .project-img-wrapper {
-                width: 100%; 
-                aspect-ratio: 16/9; 
-                border-radius: 10px; 
-                overflow: hidden; 
-                margin-bottom: 20px; 
-                border: 1px solid var(--border-color);
-                background: #1a1a1a; 
-            }
-            .project-thumb { 
-                width: 100%;
-                height: 100%;
-                object-fit: cover; 
-                transition: transform 0.5s ease;
-            } 
-            .project-box:hover .project-thumb {
-                transform: scale(1.08);
-            }
+            .project-img-wrapper { width: 100%; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; margin-bottom: 20px; border: 1px solid var(--border-color); background: #1a1a1a; }
+            .project-thumb { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; } 
+            .project-box:hover .project-thumb { transform: scale(1.08); }
             
-            .project-domain { 
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                font-size: 0.75rem; 
-                color: var(--accent); 
-                margin-bottom: 12px; 
-                text-transform: uppercase; 
-                font-weight: 600; 
-                letter-spacing: 0.5px;
-            } 
+            .project-domain { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--accent); margin-bottom: 12px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; } 
             .project-domain svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
             .project-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; line-height: 1.3; } 
-            .project-short-desc {
-                font-size: 0.9rem; 
-                color: var(--text-secondary); 
-                margin-bottom: 24px; 
-                line-height: 1.6; 
-                flex-grow: 1; 
-                display: -webkit-box; 
-                -webkit-line-clamp: 3; 
-                -webkit-box-orient: vertical; 
-                overflow: hidden;
-            }
-            .project-footer { 
-                display: flex; 
-                justify-content: space-between; 
-                align-items: center; 
-                margin-top: auto; 
-            } 
-            .btn-link { 
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                background: transparent; 
-                border: none; 
-                color: var(--accent); 
-                padding: 0; 
-                font-size: 0.9rem; 
-                font-weight: 600;
-                text-decoration: none; 
-                transition: opacity 0.3s; 
-                cursor: pointer; 
-            } 
+            .project-short-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.6; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+            .project-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; } 
+            .btn-link { display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: var(--accent); padding: 0; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: opacity 0.3s; cursor: pointer; } 
             .btn-link:hover { opacity: 0.8; } 
             .btn-link svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.3s; }
             .btn-link:hover svg { transform: translateX(4px); }
-            .tool-icon {
-                width: 24px;
-                height: 24px;
-                object-fit: contain;
-                opacity: 0.8;
-                transition: opacity 0.3s;
-            }
-            .project-box:hover .tool-icon {
-                opacity: 1;
-            }
+            .tool-icon { width: 24px; height: 24px; object-fit: contain; opacity: 0.8; transition: opacity 0.3s; }
+            .project-box:hover .tool-icon { opacity: 1; }
             
             /* MODAL (POPUP) CSS */
             #project-modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); align-items: center; justify-content: center; backdrop-filter: blur(5px); } 
@@ -445,15 +233,33 @@
             .other-tools-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; } 
             .tools-list { display: flex; flex-wrap: wrap; gap: 10px; } 
             .tool-badge { background: #2a2a2c; color: var(--tag-blue); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 4px; font-size: 0.8rem; } 
-            .modal-image-container { background: #2a2a2c; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; } 
-            .modal-image { width: 100%; border-radius: 4px; object-fit: cover; margin-bottom: 15px; } 
-            .modal-image-caption { font-size: 0.85rem; color: var(--text-muted); text-align: center; line-height: 1.4; padding: 0 10px; } 
+            
+            /* MODAL IMAGES & CAROUSEL CSS */
+            .modal-image-container { background: #2a2a2c; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; position: relative; } 
+            .img-wrapper-relative { position: relative; width: 100%; border-radius: 4px; overflow: hidden; margin-bottom: 15px; }
+            .modal-image { width: 100%; display: block; object-fit: cover; } 
+            .fullscreen-btn { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 1.2rem; line-height: 1; transition: background 0.3s; z-index: 5; }
+            .fullscreen-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+            .modal-image-caption { font-size: 0.85rem; color: var(--text-muted); text-align: center; line-height: 1.4; padding: 0 10px; margin-top: 5px; } 
             .modal-details-title { font-size: 1.4rem; font-weight: 600; margin-bottom: 20px; border-top: 1px solid var(--border-color); padding-top: 30px; } 
             .modal-details-content { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; } 
             .modal-details-content ul { margin-left: 20px; margin-bottom: 20px; } 
             .modal-details-content li { margin-bottom: 8px; } 
             .modal-details-content strong { color: var(--text-primary); } 
             
+            .carousel-container { display: none; flex-direction: column; align-items: center; background: #2a2a2c; border-radius: 8px; padding: 10px; margin-top: 30px; border: 1px solid var(--border-color); }
+            .carousel-track { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; }
+            .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: #fff; border: 1px solid var(--border-color); padding: 10px 15px; cursor: pointer; border-radius: 50%; z-index: 2; transition: all 0.3s; font-size: 1.2rem; }
+            .carousel-btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+            .carousel-prev { left: 10px; }
+            .carousel-next { right: 10px; }
+            
+            /* FULLSCREEN VIEWER */
+            #fullscreen-viewer { display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); justify-content: center; align-items: center; backdrop-filter: blur(10px); }
+            #fullscreen-img { max-width: 95%; max-height: 95%; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 50px rgba(0,0,0,0.5); }
+            .viewer-close { position: absolute; top: 25px; right: 35px; font-size: 2.5rem; color: #fff; cursor: pointer; background: transparent; border: none; transition: color 0.3s; }
+            .viewer-close:hover { color: var(--accent); }
+
             /* RESPONSIVE */
             @media (max-width: 900px) { 
                 .container { flex-direction: column; }  
@@ -483,9 +289,14 @@
                     domain: "Data Engineering",
                     shortDesc: "Built a single source of truth for project performance by integrating planning systems, cost controls, engineering deliverables, and construction feeds.",
                     tools: ["Microsoft Fabric", "Power BI", "SQL", "Python", "Delta Lake"],
-                    image: "extracted_images/project-1.png",
+                    image: "extracted_images/image_etl.png",
+                    bottomImages: [
+                        "extracted_images/image_20_15.jpg", 
+                        "extracted_images/image_24_17.jpg", 
+                        "extracted_images/image_19_14.jpg"
+                    ],
                     caption: "Architecture diagram showing the end-to-end data flow using Medallion Architecture in Microsoft Fabric.",
-                    topIcon: "extracted_images/image_0_0.png",
+                    topIcon: "extracted_images/image_fabric.png",
                     details: `
                         <p><strong>Goal:</strong> Implement a scalable, governed, and automated data architecture to replace unstable and slow Excel-based reporting.</p><br>
                         <p><strong>Pain Points Solved:</strong></p>
@@ -509,9 +320,10 @@
                     domain: "Project Management",
                     shortDesc: "Developed a real-time project progress dashboard for tracking construction milestones, engineering deliverables, and procurement status.",
                     tools: ["Power BI", "SQL", "DAX", "Power Query"],
-                    image: "extracted_images/project-2.png",
+                    image: "extracted_images/image_8_7.jpg",
+                    bottomImages: [],
                     caption: "A unified KPI-driven dashboard displaying progress to date, earned hours, plan vs actual, and performance factors.",
-                    topIcon: "extracted_images/image_0_0.png",
+                    topIcon: "extracted_images/image_pbi.png",
                     details: `
                         <p><strong>Goal:</strong> Create a single source of truth for project performance by integrating planning systems, cost controls, engineering deliverables, and construction feeds.</p><br>
                         <p><strong>Key Contributions:</strong></p>
@@ -533,9 +345,10 @@
                     domain: "Project Controls",
                     shortDesc: "Developed a status report for 20+ Contractors working on a project, providing insights into progress, resource utilization, and schedule performance.",
                     tools: ["Power BI", "SQL", "DAX", "Variance Analysis"],
-                    image: "extracted_images/project-3.png",
+                    image: "extracted_images/image_10_9.jpg",
+                    bottomImages: ["extracted_images/image_12_10.jpg"],
                     caption: "Detailed progress tracking report at the building/unit area level, enabling visibility into contractor performance.",
-                    topIcon: "extracted_images/image_0_0.png",
+                    topIcon: "extracted_images/image_pbi.png",
                     details: `
                         <p><strong>Goal:</strong> Improve visibility into individual contractor performance and track earned value metrics accurately.</p><br>
                         <p><strong>Key Contributions:</strong></p>
@@ -558,9 +371,10 @@
                     domain: "Planning & Time-Series",
                     shortDesc: "Supported long-term planning and resource forecasting by visualizing project trends over an extended timeline.",
                     tools: ["Power BI", "SQL", "Time-Series Analysis", "Power Query"],
-                    image: "extracted_images/project-4.png",
+                    image: "extracted_images/image_14_11.jpg",
+                    bottomImages: ["extracted_images/image_15_12.jpg"],
                     caption: "Time-series forecasting model displaying base scope vs. variation curves over a multi-year project lifecycle.",
-                    topIcon: "extracted_images/image_0_0.png",
+                    topIcon: "extracted_images/image_pbi.png",
                     details: `
                         <p><strong>Goal:</strong> Support long-term planning and resource forecasting by visualizing project trends over an extended timeline.</p><br>
                         <p><strong>Key Contributions:</strong></p>
@@ -582,9 +396,10 @@
                     domain: "Workforce Analytics",
                     shortDesc: "Built a workforce planning dashboard tracking manpower allocation, utilization rates, and forecasted headcount across project phases.",
                     tools: ["Power BI", "SQL", "DAX", "Workforce Analytics"],
-                    image: "extracted_images/project-5.png",
+                    image: "extracted_images/image_17_13.jpg",
+                    bottomImages: [],
                     caption: "Analytics charting tools used to track FTE utilization and highlight under/over-resourcing trends.",
-                    topIcon: "extracted_images/image_0_0.png",
+                    topIcon: "extracted_images/image_pbi.png",
                     details: `
                         <p><strong>Goal:</strong> Optimize labor planning by monitoring performance and ensuring data accuracy in contractor reporting.</p><br>
                         <p><strong>Key Contributions:</strong></p>
@@ -606,9 +421,10 @@
                     domain: "Scheduling",
                     shortDesc: "Automated trigger flows used to pull schedule updates into deviation dashboards.",
                     tools: ["MS Project", "Power BI", "SQL", "DAX"],
-                    image: "extracted_images/project-6.png",
+                    image: "extracted_images/image_22_16.jpg",
+                    bottomImages: [],
                     caption: "Automated trigger flows used to pull schedule updates into deviation dashboards.",
-                    topIcon: "extracted_images/image_1_1.png",
+                    topIcon: "extracted_images/image_pbi.png",
                     details: `
                         <p><strong>Goal:</strong> Improve task-level execution visibility and planning alignment by accurately tracking schedule deviations.</p><br>
                         <p><strong>Key Contributions:</strong></p>
@@ -626,16 +442,34 @@
                 }
             };
 
+            let currentBottomImages = [];
+            let currentSlideIndex = 0;
+
+            function changeSlide(direction) {
+                if (currentBottomImages.length === 0) return;
+                currentSlideIndex += direction;
+                if (currentSlideIndex < 0) currentSlideIndex = currentBottomImages.length - 1;
+                if (currentSlideIndex >= currentBottomImages.length) currentSlideIndex = 0;
+                document.getElementById('carousel-img').src = currentBottomImages[currentSlideIndex];
+                document.getElementById('carousel-caption').innerText = `Additional View ${currentSlideIndex + 1} of ${currentBottomImages.length}`;
+            }
+
+            function openFullscreen(src) {
+                document.getElementById('fullscreen-img').src = src;
+                document.getElementById('fullscreen-viewer').style.display = 'flex';
+            }
+
+            function closeFullscreen() {
+                document.getElementById('fullscreen-viewer').style.display = 'none';
+            }
+
             function openModal(projectId) {
                 const data = projectData[projectId];
                 if(!data) return;
 
                 document.getElementById('modal-header-title').innerText = data.title;
                 document.getElementById('modal-primary-tag').innerText = data.primaryTag;
-                
-                // Set the modal icon image based on project data
                 document.getElementById('modal-top-icon').innerHTML = `<img src="${data.topIcon}" alt="Tool Icon">`;
-                
                 document.getElementById('modal-title').innerText = data.title;
                 document.getElementById('modal-domain').innerHTML = `Domain/Function: <span>${data.domain}</span>`;
                 document.getElementById('modal-desc').innerText = data.shortDesc;
@@ -652,6 +486,26 @@
                 document.getElementById('modal-image').src = data.image;
                 document.getElementById('modal-image-caption').innerText = data.caption;
                 document.getElementById('modal-details-content').innerHTML = data.details;
+
+                // Setup Carousel if bottom images exist
+                currentBottomImages = data.bottomImages || [];
+                const carouselContainer = document.getElementById('modal-carousel');
+                if (currentBottomImages.length > 0) {
+                    carouselContainer.style.display = 'flex';
+                    currentSlideIndex = 0;
+                    document.getElementById('carousel-img').src = currentBottomImages[0];
+                    document.getElementById('carousel-caption').innerText = `Additional View 1 of ${currentBottomImages.length}`;
+                    
+                    const arrows = document.querySelectorAll('.carousel-btn');
+                    if (currentBottomImages.length === 1) {
+                        arrows.forEach(a => a.style.display = 'none');
+                    } else {
+                        arrows.forEach(a => a.style.display = 'block');
+                    }
+                } else {
+                    carouselContainer.style.display = 'none';
+                }
+
                 document.getElementById('project-modal').style.display = 'flex';
             }
 
@@ -659,15 +513,25 @@
                 document.getElementById('project-modal').style.display = 'none';
             }
 
+            // Close modals when clicking outside
             window.onclick = function(event) {
                 const modal = document.getElementById('project-modal');
+                const fullscreenViewer = document.getElementById('fullscreen-viewer');
                 if (event.target == modal) {
                     closeModal();
+                }
+                if (event.target == fullscreenViewer) {
+                    closeFullscreen();
                 }
             }
         </script>         
     </head>     
     <body> 
+        <div id="fullscreen-viewer">
+            <button class="viewer-close" onclick="closeFullscreen()">✕</button>
+            <img id="fullscreen-img" src="" alt="Fullscreen View">
+        </div>
+
         <div class="container"> 
             <aside id="sidebar" class="card"> 
                 <div class="avatar-container"> 
@@ -745,7 +609,7 @@
                         </div>                         
                         <div class="stat-box"> 
                             <div class="icon"> 
-                                <img src="extracted_images/image_0_0.png" alt="Statistics Icon" style="width: 100%; height: 100%; object-fit: contain;"/> 
+                                <img src="extracted_images/image_pipe.png" alt="Statistics Icon" style="width: 100%; height: 100%; object-fit: contain;"/> 
                             </div>                             
                             <div class="stat-info"> 
                                 <div class="number">20+</div>                                 
@@ -778,18 +642,67 @@
                             </div>                             
                         </div>                         
                     </div>                     
+
                     <h3 class="skills-heading">Key Skills</h3> 
                     <div class="skill-tags"> 
-                        <div class="skill-tag">Power BI</div>                         
-                        <div class="skill-tag">Microsoft Fabric</div>                         
-                        <div class="skill-tag">SQL</div>                         
-                        <div class="skill-tag">Python</div>                         
-                        <div class="skill-tag">Excel</div>                         
-                        <div class="skill-tag">Azure</div>                         
-                        <div class="skill-tag">Project Controls</div>                         
-                        <div class="skill-tag">Enterprise Reporting</div>
-                        <div class="skill-tag">Power Automate</div>                         
-                    </div>                     
+                        <div class="skill-tag"><img src="extracted_images/image_azure.png" alt="Azure" class="skill-icon">Azure</div>
+                        <div class="skill-tag"><img src="extracted_images/image_fabric.png" alt="Fabric" class="skill-icon">Fabric</div>
+                        <div class="skill-tag"><img src="extracted_images/image_ssms.png" alt="SSMS" class="skill-icon">SSMS</div>
+                        <div class="skill-tag"><img src="extracted_images/image_mysql.png" alt="MySQL" class="skill-icon">MySQL</div>
+                        <div class="skill-tag"><img src="extracted_images/image_jupyter.png" alt="Jupyter Notebook" class="skill-icon">Jupyter Notebook</div>
+                        <div class="skill-tag"><img src="extracted_images/image_automate.png" alt="Power Automate" class="skill-icon">Power Automate</div>
+                        <div class="skill-tag"><img src="extracted_images/image_pbi.png" alt="Power BI" class="skill-icon">Power BI</div>
+                        <div class="skill-tag"><img src="extracted_images/image_p6.png" alt="Primavera" class="skill-icon">Primavera</div>
+                        <div class="skill-tag"><img src="extracted_images/image_hexagon.png" alt="Hexagon Smartplant" class="skill-icon">Hexagon Smartplant</div>
+                        <div class="skill-tag"><img src="extracted_images/image_naviswork.png" alt="Navisworks" class="skill-icon">Navisworks</div>
+                        <div class="skill-tag"><img src="extracted_images/image_postman.png" alt="Postman" class="skill-icon">Postman</div>
+                        <div class="skill-tag"><img src="extracted_images/image_jira.png" alt="Jira" class="skill-icon">Jira</div>
+                        <div class="skill-tag"><img src="extracted_images/image_sap.png" alt="SAP" class="skill-icon">SAP</div>
+                        <div class="skill-tag"><img src="extracted_images/image_acconex.png" alt="Acconex" class="skill-icon">Acconex</div>
+                    </div> 
+
+                    <h3 class="skills-heading">Data Engineering</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">SQL</div>
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">ETL</div>
+                        <div class="skill-tag">Advance Excel - VBA</div>
+                        <div class="skill-tag">DAX</div>
+                        <div class="skill-tag">Power Query</div>
+                        <div class="skill-tag">Workflow Automation</div>
+                        <div class="skill-tag">Dashboard Architecture & Visualization</div>
+                    </div>
+
+                    <h3 class="skills-heading">Project / Workflow</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">Forecasting and Predictive Analysis</div>
+                        <div class="skill-tag">Data Modeling</div>
+                        <div class="skill-tag">Dashboard Development</div>
+                        <div class="skill-tag">Reporting and KPI Tracking</div>
+                        <div class="skill-tag">Agile and Lean Methodologies</div>
+                        <div class="skill-tag">AWP - Advance Work Package</div>
+                        <div class="skill-tag">Workface Planning</div>
+                        <div class="skill-tag">Work Package Owner (WPO)</div>
+                    </div>
+
+                    <h3 class="skills-heading">Soft Skill</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">Analytical Thinking</div>
+                        <div class="skill-tag">Problem-Solving</div>
+                        <div class="skill-tag">Attention to Detail</div>
+                        <div class="skill-tag">Business Acumen</div>
+                        <div class="skill-tag">Stakeholder Management</div>
+                    </div>
+
+                    <h3 class="skills-heading">Industry Exposure</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">CAPEX & OPEX</div>
+                        <div class="skill-tag">Pharma & Life Science</div>
+                        <div class="skill-tag">Oil & Gas</div>
+                        <div class="skill-tag">Green Energy</div>
+                        <div class="skill-tag">Green Steel</div>
+                        <div class="skill-tag">IT- Digital Transformation</div>
+                    </div>
                 </div>                 
                 
                 <div id="experience" class="section"> 
@@ -862,7 +775,7 @@
                             <p class="project-short-desc">Built a single source of truth for project performance by integrating planning systems, cost controls, engineering deliverables, and construction feeds.</p>
                             <div class="project-footer"> 
                                 <button class="btn-link" onclick="openModal('proj1')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <img src="extracted_images/image_fabric.png" class="tool-icon" alt="Data Tool"> 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
@@ -877,7 +790,7 @@
                             <p class="project-short-desc">Developed a real-time project progress dashboard for tracking construction milestones, engineering deliverables, and procurement status.</p>
                             <div class="project-footer"> 
                                 <button class="btn-link" onclick="openModal('proj2')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <img src="extracted_images/image_pbi.png" class="tool-icon" alt="Data Tool"> 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
@@ -892,7 +805,7 @@
                             <p class="project-short-desc">Developed a status report for 20+ Contractors working on a project, providing insights into progress, resource utilization, and schedule performance.</p>
                             <div class="project-footer"> 
                                 <button class="btn-link" onclick="openModal('proj3')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <img src="extracted_images/image_pbi.png" class="tool-icon" alt="Data Tool"> 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
@@ -907,7 +820,7 @@
                             <p class="project-short-desc">Supported long-term planning and resource forecasting by visualizing project trends over an extended timeline.</p>
                             <div class="project-footer"> 
                                 <button class="btn-link" onclick="openModal('proj4')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <img src="extracted_images/image_pbi.png" class="tool-icon" alt="Data Tool"> 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
@@ -922,7 +835,7 @@
                             <p class="project-short-desc">Built a workforce planning dashboard tracking manpower allocation, utilization rates, and forecasted headcount across project phases.</p>
                             <div class="project-footer"> 
                                 <button class="btn-link" onclick="openModal('proj5')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
-                                <img src="extracted_images/image_0_0.png" class="tool-icon" alt="Data Tool"> 
+                                <img src="extracted_images/image_pbi.png" class="tool-icon" alt="Data Tool"> 
                             </div>                             
                         </div>                         
                         <div class="project-box"> 
@@ -937,7 +850,7 @@
                             <p class="project-short-desc">Automated trigger flows used to pull schedule updates into deviation dashboards.</p>
                             <div class="project-footer"> 
                                 <button class="btn-link" onclick="openModal('proj6')">See My Work <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>                                 
-                                <img src="extracted_images/image_1_1.png" class="tool-icon" alt="Data Tool"> 
+                                <img src="extracted_images/image_pbi.png" class="tool-icon" alt="Data Tool"> 
                             </div>                             
                         </div>                         
                     </div>                     
@@ -1058,14 +971,29 @@
                         </div>                         
                         <div class="modal-right"> 
                             <div class="modal-image-container"> 
-                                <img id="modal-image" src="" alt="Project Image" class="modal-image"> 
+                                <div class="img-wrapper-relative">
+                                    <img id="modal-image" src="" alt="Project Image" class="modal-image"> 
+                                    <button class="fullscreen-btn" onclick="openFullscreen(document.getElementById('modal-image').src)">⛶</button>
+                                </div>
                                 <p class="modal-image-caption" id="modal-image-caption">Caption</p> 
                             </div>                             
                         </div>                         
                     </div>                     
+                    
                     <div class="modal-details-section"> 
                         <h3 class="modal-details-title">Project Details</h3> 
                         <div class="modal-details-content" id="modal-details-content"></div>                         
+                        
+                        <div class="carousel-container" id="modal-carousel">
+                            <h4 style="margin-bottom: 15px; color: var(--text-primary); font-size: 1.2rem;">Additional Views</h4>
+                            <div class="img-wrapper-relative">
+                                <button class="carousel-btn carousel-prev" onclick="changeSlide(-1)">❮</button>
+                                <img id="carousel-img" src="" class="modal-image" alt="Slide Image">
+                                <button class="fullscreen-btn" onclick="openFullscreen(document.getElementById('carousel-img').src)">⛶</button>
+                                <button class="carousel-btn carousel-next" onclick="changeSlide(1)">❯</button>
+                            </div>
+                            <p class="modal-image-caption" id="carousel-caption">Image 1 of X</p>
+                        </div>
                     </div>                     
                 </div>                 
             </div>             
